@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SharePoint Folder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Loading SharePoint Folder...</h1>
+  <div id="message"></div>
+
+  <script>
+    (function() {
+      // Get the SAP mashup context parameters
+      const params = new URLSearchParams(window.location.search);
+      const sharepointUrl = params.get('sharepointUrl'); // e.g., ?sharepointUrl=https://company.sharepoint.com/sites/AccountFolder
+
+      if (sharepointUrl) {
+        // Redirect the user to the SharePoint folder
+        window.location.href = sharepointUrl;
+      } else {
+        document.getElementById('message').innerHTML =
+          '<p class="error">No SharePoint URL provided for this account.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
