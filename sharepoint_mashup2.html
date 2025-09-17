@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SharePoint Folder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .loading {
+            color: #0078d4;
+            font-size: 18px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .redirect-info {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e1f5fe;
+            border-left: 4px solid #0078d4;
+            text-align: left;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0078d4;
+            margin: 10px 0;
+        }
+        .manual-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0078d4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .manual-link:hover {
+            background-color: #106ebe;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SharePoint Access</h1>
+        <div id="message" class="loading">Redirecting to SharePoint...</div>
+        <div id="countdown" class="countdown"></div>
+        <div id="redirect-info" class="redirect-info" style="display:none;">
+            <strong>Note:</strong> You're being redirected to SharePoint in a new window/tab for security reasons. 
+            If the redirect doesn't work automatically, use the button below.
+        </div>
+        <div id="manual-access" style="display:none;">
+            <a href="#" id="manual-link" class="manual-link" target="_blank">Open SharePoint Manually</a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const sharepointUrl = params.get('sharepointUrl');
+            
+            if (sharepointUrl) {
+                // Show redirect info
+                document.getElementById('redirect-info').style.display = 'block';
+                document.getElementById('manual-access').style.display = 'block';
+                document.getElementById('manual-link').href = sharepointUrl;
+                
+                // Countdown timer
+                let countdown = 3;
+                const countdownElement = document.getElementById('countdown');
+                const messageElement = document.getElementById('message');
+                
+                const timer = setInterval(() => {
+                    countdownElement.textContent = countdown;
+                    countdown--;
+                    
+                    if (countdown < 0) {
+                        clearInterval(timer);
+                        // Try to open in new window first
+                        const newWindow = window.open(sharepointUrl, '_blank');
+                        
+                        // If popup was blocked, fall back to same window redirect
+                        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                            window.location.href = sharepointUrl;
+                        } else {
+                            messageElement.innerHTML = '<span style="color: green;">SharePoint opened in new window. You can close this tab.</span>';
+                            countdownElement.textContent = '';
+                        }
+                    }
+                }, 1000);
+                
+                // Initial countdown display
+                countdownElement.textContent = countdown;
+                
+            } else {
+                document.getElementById('message').innerHTML = '<p class="error">No SharePoint URL provided for this account.</p>';
+            }
+        })();
+    </script>
+</body>
+</html>
