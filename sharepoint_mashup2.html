@@ -73,37 +73,64 @@
             const sharepointUrl = params.get('sharepointUrl');
             
             if (sharepointUrl) {
-                // Show redirect info
-                document.getElementById('redirect-info').style.display = 'block';
-                document.getElementById('manual-access').style.display = 'block';
-                document.getElementById('manual-link').href = sharepointUrl;
+                // Try different SharePoint embed approaches
+                const embedAttempts = [
+                    // Try the original URL first
+                    sharepointUrl,
+                    // Try embed-specific endpoints
+                    sharepointUrl.replace('/_layouts/15/sharepoint.aspx', '/_layouts/15/embed.aspx'),
+                    sharepointUrl.replace('/_layouts/15/sharepoint.aspx', '/_layouts/15/start.aspx'),
+                    // Try document library view
+                    sharepointUrl.replace('/_layouts/15/sharepoint.aspx', '/Documents/Forms/AllItems.aspx')
+                ];
                 
-                // Countdown timer
-                let countdown = 3;
-                const countdownElement = document.getElementById('countdown');
+                let currentAttempt = 0;
                 const messageElement = document.getElementById('message');
+                const manualLink = document.getElementById('manual-link');
+                manualLink.href = sharepointUrl;
                 
-                const timer = setInterval(() => {
-                    countdownElement.textContent = countdown;
-                    countdown--;
+                function tryEmbedUrl(url) {
+                    messageElement.innerHTML = `<div class="loading">Attempting to load SharePoint... (Method ${currentAttempt + 1}/${embedAttempts.length})</div>`;
                     
-                    if (countdown < 0) {
-                        clearInterval(timer);
-                        // Try to open in new window first
-                        const newWindow = window.open(sharepointUrl, '_blank');
-                        
-                        // If popup was blocked, fall back to same window redirect
-                        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                            window.location.href = sharepointUrl;
-                        } else {
-                            messageElement.innerHTML = '<span style="color: green;">SharePoint opened in new window. You can close this tab.</span>';
-                            countdownElement.textContent = '';
+                    // Create iframe to test if URL can be embedded
+                    const testFrame = document.createElement('iframe');
+                    testFrame.style.width = '100%';
+                    testFrame.style.height = '600px';
+                    testFrame.style.border = '1px solid #ddd';
+                    testFrame.style.borderRadius = '4px';
+                    testFrame.src = url;
+                    
+                    // Set up load and error handlers
+                    let loaded = false;
+                    
+                    testFrame.onload = function() {
+                        if (!loaded) {
+                            loaded = true;
+                            messageElement.innerHTML = '<div style="color: green; margin-bottom: 15px;">✅ SharePoint loaded successfully!</div>';
+                            document.querySelector('.container').appendChild(testFrame);
+                            document.getElementById('manual-access').style.display = 'none';
                         }
-                    }
-                }, 1000);
+                    };
+                    
+                    // Give it 3 seconds to load, then try next method
+                    setTimeout(() => {
+                        if (!loaded) {
+                            testFrame.remove();
+                            currentAttempt++;
+                            if (currentAttempt < embedAttempts.length) {
+                                tryEmbedUrl(embedAttempts[currentAttempt]);
+                            } else {
+                                // All attempts failed, show manual options
+                                messageElement.innerHTML = '<div class="error">❌ Unable to embed SharePoint due to security restrictions.</div>';
+                                document.getElementById('redirect-info').style.display = 'block';
+                                document.getElementById('manual-access').style.display = 'block';
+                            }
+                        }
+                    }, 3000);
+                }
                 
-                // Initial countdown display
-                countdownElement.textContent = countdown;
+                // Start trying embed URLs
+                tryEmbedUrl(embedAttempts[currentAttempt]);
                 
             } else {
                 document.getElementById('message').innerHTML = '<p class="error">No SharePoint URL provided for this account.</p>';
