@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0'>
+    <channel>
+        <title>Felchlin News Feed</title>
+        <link>https://your.integration.url/felchlin-news-feed</link>
+        <description>Latest news about Felchlin and Swiss chocolate industry</description>
+        <item>
+            <title>Sustainability in Swiss Chocolate: How Felchlin Sets Industry Standards</title>
+            <link>https://www.foodswiss.ch/news/sustainability-swiss-chocolate-felchlin-standards</link>
+            <description>A look into how Felchlin has positioned itself as a leader in sustainability and fair trade within the Swiss chocolate industry.</description>
+            <pubDate>Thu, 13 Jun 2024 08:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Swiss Chocolate Companies Face Competition as Vegan Options Rise</title>
+            <link>https://www.foodnavigator.com/Article/2024/06/07/swiss-chocolate-competition-vegan-options</link>
+            <description>Market analysis of how traditional Swiss chocolate companies, including Felchlin, are adapting to increased competition from vegan chocolate brands.</description>
+            <pubDate>Fri, 07 Jun 2024 09:50:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Swiss Chocolate Exports Continue to Grow Amid Rising Demand for Premium Brands</title>
+            <link>https://www.reuters.com/markets/europe/swiss-chocolate-exports-2024-premium-brands-20240605/</link>
+            <description>Swiss chocolate exports surged in early 2024, with companies like Felchlin benefiting from increased demand for high-quality and artisanal products.</description>
+            <pubDate>Wed, 05 Jun 2024 13:15:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Felchlin Collaborates with Top Pastry Chefs for Innovative Chocolate Creations</title>
+            <link>https://www.pastryworldmag.com/felchlin-collaborates-pastry-chefs-innovative-chocolate</link>
+            <description>Felchlin has teamed up with renowned pastry chefs in Switzerland to develop a new line of innovative chocolate products.</description>
+            <pubDate>Fri, 31 May 2024 16:20:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Felchlin Wins International Chocolate Award for Ethical Sourcing</title>
+            <link>https://www.chocolatejournal.com/felchlin-wins-international-chocolate-award-2024</link>
+            <description>Swiss chocolate maker Felchlin has been recognized for its ethical sourcing practices, winning a gold medal at the International Chocolate Awards 2024.</description>
+            <pubDate>Tue, 28 May 2024 10:30:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
