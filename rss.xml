@@ -1,38 +1,38 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0'>
     <channel>
-        <title>Felchlin News Feed</title>
-        <link>https://your.integration.url/felchlin-news-feed</link>
-        <description>Latest news about Felchlin and Swiss chocolate industry</description>
+        <title>CNC Industry Insights</title>
+        <link>https://www.num.com/news</link>
+        <description>Latest updates on CNC automation, Wood/Metal/Stone market trends, and SAP integration</description>
         <item>
-            <title>Sustainability in Swiss Chocolate: How Felchlin Sets Industry Standards</title>
-            <link>https://www.foodswiss.ch/news/sustainability-swiss-chocolate-felchlin-standards</link>
-            <description>A look into how Felchlin has positioned itself as a leader in sustainability and fair trade within the Swiss chocolate industry.</description>
-            <pubDate>Thu, 13 Jun 2024 08:00:00 GMT</pubDate>
+            <title>Precision in Motion: NUM’s New CNC System Version for Woodworking</title>
+            <link>https://www.num.com/news/cnc-woodworking-innovation</link>
+            <description>A deep dive into how our latest CNC System Version optimizes high-speed cutting for the wood industry segment.</description>
+            <pubDate>Mon, 19 Jan 2026 09:00:00 GMT</pubDate>
         </item>
         <item>
-            <title>Swiss Chocolate Companies Face Competition as Vegan Options Rise</title>
-            <link>https://www.foodnavigator.com/Article/2024/06/07/swiss-chocolate-competition-vegan-options</link>
-            <description>Market analysis of how traditional Swiss chocolate companies, including Felchlin, are adapting to increased competition from vegan chocolate brands.</description>
-            <pubDate>Fri, 07 Jun 2024 09:50:00 GMT</pubDate>
+            <title>Optimizing the 12-Month Sales Cycle in Machine Tooling</title>
+            <link>https://www.num.com/news/sales-cycle-optimization</link>
+            <description>Market analysis on managing long-term opportunity pipelines and custom probability weighting for heavy machinery.</description>
+            <pubDate>Wed, 14 Jan 2026 10:30:00 GMT</pubDate>
         </item>
         <item>
-            <title>Swiss Chocolate Exports Continue to Grow Amid Rising Demand for Premium Brands</title>
-            <link>https://www.reuters.com/markets/europe/swiss-chocolate-exports-2024-premium-brands-20240605/</link>
-            <description>Swiss chocolate exports surged in early 2024, with companies like Felchlin benefiting from increased demand for high-quality and artisanal products.</description>
-            <pubDate>Wed, 05 Jun 2024 13:15:00 GMT</pubDate>
+            <title>The Future of Service: Replacing Legacy Systems with Integrated Ticket Management</title>
+            <link>https://www.num.com/news/after-sales-service-trends</link>
+            <description>How transition from traditional 'NHS' databases to modern SLA-driven case management improves customer satisfaction.</description>
+            <pubDate>Fri, 09 Jan 2026 14:15:00 GMT</pubDate>
         </item>
         <item>
-            <title>Felchlin Collaborates with Top Pastry Chefs for Innovative Chocolate Creations</title>
-            <link>https://www.pastryworldmag.com/felchlin-collaborates-pastry-chefs-innovative-chocolate</link>
-            <description>Felchlin has teamed up with renowned pastry chefs in Switzerland to develop a new line of innovative chocolate products.</description>
-            <pubDate>Fri, 31 May 2024 16:20:00 GMT</pubDate>
+            <title>SAP S/4HANA & CRM: Real-Time Credit and Asset Sync for Global Reps</title>
+            <link>https://www.num.com/news/sap-crm-integration-benefits</link>
+            <description>Technical overview of bi-directional interfaces for Quote/Order creation and real-time shipping updates.</description>
+            <pubDate>Mon, 05 Jan 2026 11:00:00 GMT</pubDate>
         </item>
         <item>
-            <title>Felchlin Wins International Chocolate Award for Ethical Sourcing</title>
-            <link>https://www.chocolatejournal.com/felchlin-wins-international-chocolate-award-2024</link>
-            <description>Swiss chocolate maker Felchlin has been recognized for its ethical sourcing practices, winning a gold medal at the International Chocolate Awards 2024.</description>
-            <pubDate>Tue, 28 May 2024 10:30:00 GMT</pubDate>
+            <title>Digital Twins and Installed Base Hierarchy: Tracking Every Machine Serial #</title>
+            <link>https://www.num.com/news/installed-base-management</link>
+            <description>Exploring the importance of tracking the hierarchy from Factory Location down to the specific CNC version for after-sales support.</description>
+            <pubDate>Thu, 02 Jan 2026 16:45:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
